@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% load static %} {% block 'title'%}Converson JSON{%endblock%}
+{% block 'content' %}
+
+
+    
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="upload-btn-wrapper">
+                <button class="btn-upload">Carregar Arquivo</button>
+                <input type="file" id="fileInput" name="documents" multiple onchange="displaySelectedFiles()" accept=".xlsx,.xls">
+            </div>
+            <div id="fileNames"></div>
+            <div class="d-flex flex-row justify-content-center align-items-center mt-5">
+                <div class="col-6 mx-5">
+                    <button type="submit" class="btn btn-custom mx-4 w-100 ">Converter</button>
+                </div>
+                <div class="col-6 mx-5">
+                    <button type="reset" class="btn btn-secondary mx-4 fw-bold w-100" onclick="resetFileNames()">Limpar Arquivos</button>
+                </div>
+            </div>
+        </form>
+<script>
+    function displaySelectedFiles() {
+        let fileInput = document.getElementById('fileInput');
+        let fileNamesDiv = document.getElementById('fileNames');
+        fileNamesDiv.innerHTML = '';
+        let fileDivMain = document.createElement('div');
+        fileDivMain.className = 'main-filecontent';
+        for (let i = 0; i < fileInput.files.length; i++) {
+            let fileDiv = document.createElement('div');
+            fileDiv.className = 'file-name';
+            fileDiv.textContent = fileInput.files[i].name;
+            fileDivMain.appendChild(fileDiv);
+        }
+        fileNamesDiv.appendChild(fileDivMain)
+
+    }
+
+    function resetFileNames() {
+        document.getElementById('fileNames').innerHTML = '';
+    }
+    
+</script>
+{% endblock %}

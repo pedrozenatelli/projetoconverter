@@ -1,0 +1,52 @@
+{% extends 'base.html' %} {% load static %} {% load custom_filters %}
+{% block 'title'%}Converson JSON{%endblock%}
+{% block 'head' %}
+<style>
+    .download-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 5px 0;
+        border-radius: 25px;
+        background-color: blue;
+        color: white;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+
+    .download-btn:hover {
+        background-color: darkblue;
+    }
+
+    .back-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 5px 0;
+        border-radius: 25px;
+        background-color: green;
+        color: white;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+
+    .back-btn:hover {
+        background-color: darkgreen;
+    }
+</style>
+{% endblock %}
+{% block 'content' %}
+
+<div class="row">
+    <div class="col d-flex justify-content-center align-items-center">
+        <ul>
+            {% for file in converted_files %}
+            <a class="download-btn fw-bold" href="{% url 'download_file' file|split_filename %}">Baixar arquivo: {{ file|split_filename }}</a>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+
+<a class="btn-upload" style="text-decoration:none;" href="{% url 'start' %}">Converter novo arquivo</a>
+
+
+{%endblock%}

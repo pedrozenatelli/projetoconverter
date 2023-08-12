@@ -1,0 +1,56 @@
+body {
+    background-color: #f4f4f4; /* Cinza claro */
+}
+h1, h2 {
+    color: #e4e3e2; /* Laranja */
+}
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+.btn-upload {
+    border: 2px solid #ff7f00; /* Laranja */
+    color: #ff7f00; /* Laranja */
+    background-color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}
+.btn-custom {
+    background-color: #ff7f00; /* Laranja */
+    border-color: #ff7f00; /* Laranja */
+    color: #fff; /* Branco */
+}
+.btn-custom:hover {
+    background-color: #cc6600; /* Um tom de laranja mais escuro */
+    border-color: #cc6600; /* Um tom de laranja mais escuro */
+}
+.file-name {
+    margin: 50px;
+    border: 1px solid #cc6600; /* Cinza claro */
+    color: #8b4600; /* Cinza claro */
+    padding: 10px;
+    border-radius: 15px; /* Borda arredondada */
+    display: inline-block;
+}
+
+.main-filecontent{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    border-radius: 15px; /* Borda arredondada */
+    padding: 5px;
+    border: 1.5px solid #333232; /* Cinza claro */
+
+}
